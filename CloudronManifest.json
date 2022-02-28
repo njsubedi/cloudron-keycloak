@@ -1,0 +1,31 @@
+{
+  "manifestVersion": 2,
+  "id": "org.keycloak.cloudronapp",
+  "website": "https://www.keycloak.org",
+  "contactEmail": "support@keycloak.org",
+  "title": "Keycloak",
+  "author": "Keycloak authors",
+  "tagline": "Open Source Identity and Access Management",
+  "version": "17.0.0",
+  "icon": "manifest/logo.png",
+  "description": "file://manifest/DESCRIPTION.md",
+  "changelog": "file://manifest/CHANGELOG.md",
+  "postInstallMessage": "file://manifest/POSTINSTALL.md",
+  "healthCheckPath": "/",
+  "httpPort": 8080,
+  "memoryLimit": 1073741824,
+  "addons": {
+    "localstorage": {},
+    "postgresql": {},
+    "sendmail": {},
+    "ldap": {}
+  },
+  "tags": [
+    "auth"
+  ],
+  "optionalSso": true,
+  "mediaLinks": [],
+  "forumUrl": "https://forum.cloudron.io/",
+  "documentationUrl": "https://docs.cloudron.io/"
+}
+
