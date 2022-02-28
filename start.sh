@@ -28,7 +28,7 @@ if [[ ! -f /app/data/conf/keycloak.conf ]]; then
 
   touch /app/data/conf/keycloak.conf
 
-  echo "Basic settings to run Keycloak in production" >/app/data/conf/keycloak.conf
+  echo "#Basic settings to run Keycloak in production" >/app/data/conf/keycloak.conf
 fi
 
 # These values should be re-set to make Keycloak work
