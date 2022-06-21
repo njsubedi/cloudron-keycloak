@@ -6,7 +6,7 @@
   "title": "Keycloak",
   "author": "Keycloak authors",
   "tagline": "Open Source Identity and Access Management",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "icon": "manifest/logo.png",
   "description": "file://manifest/DESCRIPTION.md",
   "changelog": "file://manifest/CHANGELOG.md",
