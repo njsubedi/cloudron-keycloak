@@ -81,4 +81,4 @@ echo "JAVA_OPTS_APPEND: $JAVA_OPTS_APPEND"
 
 chown -R cloudron:cloudron /app/data/
 
-/usr/local/bin/gosu cloudron:cloudron /app/code/bin/kc.sh -cf /app/data/conf/keycloak.conf start
+/usr/local/bin/gosu cloudron:cloudron /app/code/bin/kc.sh -cf /app/data/conf/keycloak.conf start --optimized
