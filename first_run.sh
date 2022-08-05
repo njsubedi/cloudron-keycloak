@@ -1,12 +1,20 @@
 #!/bin/bash
 set -eu pipefail
 
+pg_cli() {
+  PGPASSWORD=$CLOUDRON_POSTGRESQL_PASSWORD psql \
+    -h $CLOUDRON_POSTGRESQL_HOST \
+    -p $CLOUDRON_POSTGRESQL_PORT \
+    -U $CLOUDRON_POSTGRESQL_USERNAME \
+    -d $CLOUDRON_POSTGRESQL_DATABASE -c "$1"
+}
+
 export KEYCLOAK_HOME=/app/code
 export KEYCLOAK_ADMIN=keycloakadmin
 export KEYCLOAK_ADMIN_PASSWORD=keycloakadminpassword
 
 echo "Start keycloak with default params"
-/usr/local/bin/gosu cloudron:cloudron /app/code/bin/kc.sh start \
+/usr/local/bin/gosu cloudron:cloudron /app/code/bin/kc.sh start --optimized \
   --db-url "jdbc:postgresql://$CLOUDRON_POSTGRESQL_HOST/$CLOUDRON_POSTGRESQL_DATABASE" \
   --db-username "$CLOUDRON_POSTGRESQL_USERNAME" \
   --db-password "$CLOUDRON_POSTGRESQL_PASSWORD" >/app/data/firstrun.log &
@@ -88,14 +96,6 @@ LDAP_VENDOR='ad'
 LDAP_FIRSTNAME_MAPPER='givenName'
 
 # Only create new provider if none exist.
-pg_cli() {
-  PGPASSWORD=$CLOUDRON_POSTGRESQL_PASSWORD psql \
-    -h $CLOUDRON_POSTGRESQL_HOST \
-    -p $CLOUDRON_POSTGRESQL_PORT \
-    -U $CLOUDRON_POSTGRESQL_USERNAME \
-    -d $CLOUDRON_POSTGRESQL_DATABASE -c "$1"
-}
-
 echo "Checking for existing LDAP providers"
 COUNT_LDAP_PROVIDERS_RAW=$(pg_cli "SELECT count(id) FROM component WHERE parent_id='$KC_REALM' and provider_id='ldap' and provider_type='org.keycloak.storage.UserStorageProvider';")
 COUNT_LDAP_PROVIDERS=$(echo "$COUNT_LDAP_PROVIDERS_RAW" | head -n 3 | tail -n 1 | xargs)

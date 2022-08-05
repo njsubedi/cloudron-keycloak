@@ -1,5 +1,6 @@
 {
   "manifestVersion": 2,
+  "minBoxVersion": "7.2.0",
   "id": "org.keycloak.cloudronapp",
   "website": "https://www.keycloak.org",
   "contactEmail": "support@keycloak.org",
@@ -17,13 +18,13 @@
   "addons": {
     "localstorage": {},
     "postgresql": {},
-    "sendmail": {},
+    "sendmail": { "supportsDisplayName": true},
     "ldap": {}
   },
   "tags": [
     "auth"
   ],
-  "optionalSso": true,
+  "optionalSso": false,
   "mediaLinks": [],
   "forumUrl": "https://forum.cloudron.io/",
   "documentationUrl": "https://docs.cloudron.io/"
