@@ -54,7 +54,7 @@ else
 
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_SERVER', 'host');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_PORT', 'port');"
-  pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_USERNAME ', 'user');"
+  pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_USERNAME', 'user');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_PASSWORD', 'password');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM', 'from');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM', 'envelopeFrom');"
