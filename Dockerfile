@@ -5,7 +5,7 @@ RUN mkdir -p /app/code /app/data && \
     apt-get install -y openjdk-11-jre-headless && apt-get clean && apt-get autoremove && \
     rm -rf /var/cache/apt /var/lib/apt/lists
 
-RUN curl -L https://github.com/keycloak/keycloak/releases/download/19.0.2/keycloak-19.0.2.tar.gz | \
+RUN curl -L https://github.com/keycloak/keycloak/releases/download/20.0.2/keycloak-20.0.2.tar.gz | \
     tar zx --strip-components 1 -C /app/code
 
 RUN /app/code/bin/kc.sh build \

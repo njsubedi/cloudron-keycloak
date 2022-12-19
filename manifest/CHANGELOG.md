@@ -1,3 +1,6 @@
+v20.0.2
+Bump to Keycloak v20.0.2
+---
 v19.0.2
 Bump to Keycloak v19.0.2
 ---
