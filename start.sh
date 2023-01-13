@@ -57,15 +57,10 @@ else
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_USERNAME', 'user');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_SMTP_PASSWORD', 'password');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM', 'from');"
+  pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM_DISPLAY_NAME', 'fromDisplayName');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM', 'envelopeFrom');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM', 'replyTo');"
-
-  # Only set display name if it is set in the Cloudron dashboard, and has some value.
-  if [[ -n "${CLOUDRON_MAIL_FROM_DISPLAY_NAME}" ]]; then
-    pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM_DISPLAY_NAME', 'fromDisplayName');"
-    pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM_DISPLAY_NAME', 'replyToDisplayName');"
-  fi
-
+  pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '$CLOUDRON_MAIL_FROM_DISPLAY_NAME', 'replyToDisplayName');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '', 'starttls');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', '', 'ssl');"
   pg_cli "INSERT INTO public.realm_smtp_config (realm_id, value, name) VALUES ('$KC_NEW_REALM', 'true', 'auth');"
