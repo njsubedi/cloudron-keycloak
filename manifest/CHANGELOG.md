@@ -1,3 +1,6 @@
+v21.1.1
+Update to Keycloak v21.1.1
+---
 v20.0.3
 Bump to Keycloak v20.0.3
 ---
